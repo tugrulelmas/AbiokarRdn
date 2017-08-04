@@ -10,6 +10,6 @@ namespace AbiokaRdn.Infrastructure.Common.Dynamic
         /// <value>
         /// The request.
         /// </value>
-        HttpRequestMessage Request { get; }
+        object Request { get; }
     }
 }

@@ -4,10 +4,10 @@ namespace AbiokaRdn.Infrastructure.Common.Dynamic
 {
     public class RequestContext : IRequestContext
     {
-        public RequestContext(HttpRequestMessage request) {
+        public RequestContext(object request) {
             Request = request;
         }
 
-        public HttpRequestMessage Request { get; }
+        public object Request { get; }
     }
 }
