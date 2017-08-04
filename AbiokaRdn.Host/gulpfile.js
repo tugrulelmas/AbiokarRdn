@@ -32,7 +32,7 @@ gulp.task('copy', function () {
 });
 
 var createOptions = function (name) {
-    return { name: name, addRootSlash: false, ignorePath: 'wwwwroot' }
+    return { name: name, addRootSlash: false, ignorePath: 'wwwroot' }
 };
 
 gulp.task('clean', function (cb) {
