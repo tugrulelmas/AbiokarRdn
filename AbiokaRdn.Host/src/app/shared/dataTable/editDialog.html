@@ -1,0 +1,25 @@
+﻿<div>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{$ctrl.title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                <md-icon aria-label="{{'Close' | translate}}">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" ng-transclude>
+        </div>
+        <md-progress-linear md-mode="indeterminate" ng-show="$ctrl.loading"></md-progress-linear>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="$ctrl.cancel()">
+            {{'Cancel' | translate}}
+        </md-button>
+        <md-button ng-click="$ctrl.saveDialog()">
+            {{'OK' | translate}}
+        </md-button>
+    </md-dialog-actions>
+</div>

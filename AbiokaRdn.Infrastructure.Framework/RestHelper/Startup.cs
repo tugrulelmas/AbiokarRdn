@@ -1,7 +1,6 @@
 ﻿using AbiokaRdn.Infrastructure.Common.IoC;
 using AbiokaRdn.Infrastructure.Framework.IoC;
 using Castle.MicroKernel.Lifestyle;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,11 +35,6 @@ namespace AbiokaRdn.Infrastructure.Framework.RestHelper
 
             container.Container.BeginScope();
             return DependencyContainer.Container.Resolve<IServiceProvider>();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Microsoft.Extensions.Logging.ILoggerFactory loggerFactory) {
-            app.UseMvc();
         }
     }
 }

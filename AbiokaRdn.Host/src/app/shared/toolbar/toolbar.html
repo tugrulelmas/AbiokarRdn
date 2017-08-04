@@ -1,0 +1,57 @@
+﻿<md-toolbar class="navbar-transparent">
+    <div class="md-toolbar-tools">
+        <md-button class="md-fab md-raised md-mini" ng-click="$ctrl.openLeftMenu()" ng-if="$ctrl.user.IsSignedIn" hide-gt-sm>
+            <md-icon>menu</md-icon>
+            <md-tooltip>
+                {{'Menu' | translate}}
+            </md-tooltip>
+        </md-button>
+        <h2>
+            <span>Abioka</span>
+        </h2>
+        <span flex></span>
+        <md-menu>
+            <md-button class="md-fab md-mini" ng-click="$mdOpenMenu($event)">
+                <md-icon>language</md-icon>
+                <md-tooltip>
+                    {{'Language' | translate}}
+                </md-tooltip>
+            </md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ng-click="$ctrl.changeLanguage('tr')">
+                        Türkçe
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="$ctrl.changeLanguage('en')">
+                        English
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <div ng-show="$ctrl.user.IsSignedIn">
+            <md-menu>
+                <md-button class="md-fab md-mini" ng-click="$mdOpenMenu($event)">
+                    <md-icon>person</md-icon>
+                    <md-tooltip>
+                        {{'Profile' | translate}}
+                    </md-tooltip>
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item ng-show="$ctrl.user.Provider === 'Local'">
+                        <a class="md-button md-ink-ripple" ui-sref="changePassword">
+                            <span>{{'ChangePassword' | translate}}</span>
+                        </a>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-button class="md-fab md-mini" ng-click="$ctrl.logout()">
+                <md-icon>exit_to_app</md-icon>
+                <md-tooltip>
+                    {{'LogOut' | translate}}
+                </md-tooltip>
+            </md-button>
+        </div>
+    </div>
+</md-toolbar>

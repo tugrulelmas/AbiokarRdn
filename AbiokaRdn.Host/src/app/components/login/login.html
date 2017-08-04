@@ -1,0 +1,77 @@
+﻿<md-content layout="row" layout-align="space-around" layout-padding="layout-padding" class="login-form">
+    <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+        <md-toolbar data-background-color="orange">
+            <div class="md-toolbar-tools">
+                <h2><span>{{'LoginForm' | translate}}</span></h2>
+            </div>
+        </md-toolbar>
+        <md-card-content>
+            <form name="loginForm" ng-submit="loginForm.$valid && vm.login()">
+                <md-input-container class="md-block">
+                    <label>{{'Email' | translate}}</label>
+                    <md-icon>email</md-icon>
+                    <input type="email" name="email" ng-model="vm.user.Email" required="" />
+                    <validation-message model="loginForm.email" field-name="{{'Email' | translate}}"></validation-message>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'Password' | translate}}</label>
+                    <md-icon>https</md-icon>
+                    <input type="password" name="password" ng-model="vm.user.Password" required="" md-maxlength="16" />
+                    <validation-message model="loginForm.password" field-name="{{'Password' | translate}}"></validation-message>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <div layout="row" layout-align="end center">
+                        <div layout="row" layout-align="start center" flex>
+                            <md-checkbox ng-model="vm.rememberMe" aria-label="{{'RememberMe' | translate}}">
+                                {{'RememberMe' | translate}}
+                            </md-checkbox>
+                        </div>
+                        <div class="forgot-password">
+                            <small>
+                                <a href="" ui-sref="resetPassword">{{'ForgetYourPassword' | translate}}</a>
+                            </small>
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-progress-linear md-mode="indeterminate" ng-show="vm.loading"></md-progress-linear>
+                <md-input-container class="md-block">
+                    <div layout="row" layout-xs="column" layout-align="end center">
+                        <div layout="row" layout-align="start center" flex>
+                            <md-button flex="80" type="submit" ng-disabled="!loginForm.$valid || vm.loading" class="md-raised md-default">&nbsp {{'Login' | translate}} &nbsp</md-button>
+                        </div>
+                        <div>
+                            <small>
+                                {{'DontHaveAnAccountYet' | translate}}
+                                <a href="" ui-sref="register">{{'SignUp' | translate}}</a>
+                            </small>
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+            <div class="signup-or-separator">
+                <h5 class="text">{{'or' | translate}}</h5>
+                <hr>
+            </div>
+            <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-fab md-primary md-hue-2" ng-click="vm.authenticate('facebook')">
+                    <ng-md-icon icon="facebook"></ng-md-icon>
+                    <md-tooltip>
+                        {{'SignInWithFacebook' | translate}}
+                    </md-tooltip>
+                </md-button>
+                <md-button class="md-fab md-hue-2" ng-click="vm.authenticate('google')">
+                    <ng-md-icon icon="google-plus"></ng-md-icon>
+                    <md-tooltip>
+                        {{'SignInWithGoogle' | translate}}
+                    </md-tooltip>
+                </md-button>
+            </div>
+            <div class="marT20" layout="row" layout-align="center center">
+                <small>
+                    {{'DidntReceiveConfirmationEmail' | translate}}
+                    <a href="" ui-sref="resendVerification">{{'RequestNewOne' | translate}}</a>
+                </small>
+            </div>
+        </md-card-content>
+    </md-card>
+</md-content>
